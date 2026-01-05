@@ -13,3 +13,6 @@ Kullanılan Teknolojiler
 
 Yapılacaklar Listesi
 - Tasarıma daha çok önem verilecek
+
+
+Not : vysex adında bir dosya daha vardı ama githubın yükleme limiti 25mb olduğu için o video atılmadı
