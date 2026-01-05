@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>FutiVal</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <style>
+    .image-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    footer {
+      width: 100%;
+      background-color: #2b2b2b;
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .footer-icons a {
+    display: inline-block;
+    margin: 0 12px;
+    }
+
+    .footer-icons i {
+    font-size: 22px;
+    color: white;
+    transition: all 0.3s ease;
+    }
+
+    .footer-icons i:hover {
+    transform: scale(1.2);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    color: #a30000;
+    }
+
+    .section-divider {
+      width: 1300px;
+      height: 2px;
+      background: #a30000;
+      margin: 40px auto;
+      border-radius: 10px;
+    }
+
+    #oyuntarihi, #ajanlar, #nasiloynanir, #genelbilgi{
+    scroll-margin-top: 70px;
+    }
+
+    /* Scrollbar genişliği */
+      ::-webkit-scrollbar {
+      width: 5px;
+      }
+
+    /* Arka plan */
+      ::-webkit-scrollbar-track {
+      background: #000;
+    }
+
+    /* Kaydırılan parça */
+      ::-webkit-scrollbar-thumb {
+      background: lightgray;
+      border-radius: 10px;
+    }
+
+    /* Hover */
+      ::-webkit-scrollbar-thumb:hover {
+      background: lightgray;
+    }
+
+    body {
+      background-color: #000000;
+      overflow-x: hidden;
+      padding-top: 70px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      height: 70px;
+    }
+
+    /* KARAKTERLER */
+    .image-row {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .image-hover-box {
+      position: relative;
+      width: 250px;
+      cursor: pointer;
+    }
+
+    .image-hover-box img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 16px;
+      transition: opacity .3s ease;
+      display: block;
+    }
+
+    .image-hover-box:hover img {
+      opacity: .6;
+    }
+
+    .image-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      color: white;
+      transition: opacity .3s ease;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .image-hover-box:hover .image-text {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .image-hover-box {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+    filter: invert(1);
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container-fluid p-0">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black px-3 fixed-top">
+  <a class="navbar-brand d-flex align-items-center" href="#">
+    <img src="logoyildizi.jpeg" style="height:60px;">
+    <h2 class="ms-2 mb-0" style="font-family:Comic Sans MS;color:white;">Futi</h2>
+    <h2 class="ms-1 mb-0" style="font-family:Comic Sans MS;color:red;">Val</h2>
+  </a>
+
+  <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="nav">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" style="font-family: Comic Sans MS;">Bilgi</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#oyuntarihi" style="font-family: Comic Sans MS;">Oyun Tarihi</a></li>
+          <li><a class="dropdown-item" href="#ajanlar" style="font-family: Comic Sans MS;">Ajanlar</a></li>
+          <li><a class="dropdown-item" href="#nasiloynanir" style="font-family: Comic Sans MS;">Nasıl Oynanır?</a></li>
+          <li><a class="dropdown-item" href="#genelbilgi" style="font-family: Comic Sans MS;">Genel Bilgi</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a class="nav-link" style="font-family: Comic Sans MS;" href="FutiVal-Duyurular.html">Duyurular</a></li>
+      <li class="nav-item"><a class="nav-link" style="font-family: Comic Sans MS;" href="FutiVal-PreBulma.html">Pre Bulma</a></li>
+      <li class="nav-item"><a class="nav-link" style="font-family: Comic Sans MS;" href="FutiVal-Yorumlar.html">Yorumlar</a></li>
+      <li class="nav-item"><a class="nav-link" style="font-family: Comic Sans MS;" href="FutiVal-Destek.html">Destek</a></li>
+    </ul>
+
+    <div>
+      <a href="FutiVal-KayıtOl.html" class="btn btn-dark" style="font-family: Comic Sans MS; border-radius: 5px; margin-right: 10px; width: 90px;">Kayıt Ol</a>
+      <a href="FutiVal-GirisYap.html" class="btn btn-light me-2" style="font-family: Comic Sans MS; border-radius: 5px; width: 95px;">Giriş Yap</a>
+    </div>
+  </div>
+</nav>
+<!-- SLIDER -->
+<div class="row">
+  <div class="col-md-12">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <center>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="slider1.jpeg" class="d-block" alt="..." style="height: 550px; width: 1500px;opacity: 0.7;">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Hoşgeldiniz</h5>
+        <p>Sitemiz kullanıma açılmıştır.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="slider2.jpeg" class="d-block" alt="..." style="height: 550px; width: 1500px;opacity: 0.7;">      
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Pre Arama Bölümümüz kullanıma hazır.</h5>
+        <p>Pre bularak rakiplerini ez ve geç!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="slider3.jpeg" class="d-block" alt="..." style="height: 550px; width: 1500px;opacity: 0.7;">      
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Bir Sorun Varsa</h5>
+        <p>"Destek" bölümüne tıklayıp gereken bilgileri doldurduktan sonra mesajınızı bize iletiniz.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+</div>
+</center>
+<div class="section-divider"></div>
+
+<!-- OYUN TARİHİ -->
+<div class="text-center text-white py-4" id="oyuntarihi">
+  <h1>Oyun Tarihi</h1>
+  <p class="mt-3">
+    Valorant (VALORANT olarak stilize edilir), Riot Games tarafından geliştirilip yayınlanan bir free-to-play çok oyunculu taktiksel birinci şahıs nişancı video oyunudur. İlk olarak Ekim 2019'da Project A kod adı altında yayınlanan oyun, 7 Nisan 2020'de sınırlı erişimle kapalı beta dönemine başladı ve ardından 2 Haziran 2020'de resmî olarak yayınlandı.
+  </p>
+</div>
+<div class="section-divider"></div>
+<!-- KARAKTERLER -->
+<div class="row">
+<div class="col-md-12 text-center" id="ajanlar">
+  <h1 style="color:white;">Ajanlar</h1><br>
+  <div class="image-row">
+
+<a href="FutiVal-Brimstone.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="dene.png">
+      <div class="image-text">
+        <h5>Brimstone</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Jett.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="jett.png">
+      <div class="image-text">
+        <h5>Jett</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Phoenix.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="phoenix.png">
+      <div class="image-text">
+        <h5>Phoenix</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Sage.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="sage.png">
+      <div class="image-text">
+        <h5>Sage</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Sova.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="sova.jpg">
+      <div class="image-text">
+        <h5>Sova</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Breach.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="breach.png">
+      <div class="image-text">
+        <h5>Breach</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Clove.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="clove.png">
+      <div class="image-text">
+        <h5>Clove</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Chamber.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="chamber.png">
+      <div class="image-text">
+        <h5>Chamber</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Fade.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="fade.png">
+      <div class="image-text">
+        <h5>Fade</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Iso.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="iso.png">
+      <div class="image-text">
+        <h5>Iso</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Neon.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="neon.png">
+      <div class="image-text">
+        <h5>Neon</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Reyna.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="reyna.png">
+      <div class="image-text">
+        <h5>Reyna</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Raze.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="raze.png">
+      <div class="image-text">
+        <h5>Raze</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Skye.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="skye.png">
+      <div class="image-text">
+        <h5>Skye</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Viper.html" class="image-link">
+  <div class="image-hover-box">
+      <img src="viper.png">
+      <div class="image-text">
+        <h5>Viper</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+
+<a href="FutiVal-Tejo.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="tejo.png">
+      <div class="image-text">
+        <h5>Tejo</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Veto.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="veto.png">
+      <div class="image-text">
+        <h5>Veto</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Vyse.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="vyse.png">
+      <div class="image-text">
+        <h5>Vyse</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Yoru.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="yoru.png">
+      <div class="image-text">
+        <h5>Yoru</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Waylay.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="waylay.png">
+      <div class="image-text">
+        <h5>Waylay</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Omen.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="omen.png">
+      <div class="image-text">
+        <h5>Omen</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+       </a>
+<a href="FutiVal-Killjoy.html" class="image-link">
+      <div class="image-hover-box">
+      <img src="killjoy.png">
+      <div class="image-text">
+        <h5>Killjoy</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Kayo.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="kayo.png">
+      <div class="image-text">
+        <h5>Kay/o</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Harbor.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="harbor.png">
+      <div class="image-text">
+        <h5>Harbor</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Gekko.html" class="image-link">
+    <div class="image-hover-box">
+      <img src="gekko.jpg">
+      <div class="image-text">
+        <h5>Gekko</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Cypher.html" class="image-link">
+      <div class="image-hover-box">
+      <img src="cypher.jpg">
+      <div class="image-text">
+        <h5>Cypher</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Astra.html" class="image-link">
+      <div class="image-hover-box">
+      <img src="astra.jpg">
+      <div class="image-text">
+        <h5>Astra</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+ </a>
+<a href="FutiVal-Deadlock.html" class="image-link">
+      <div class="image-hover-box">
+      <img src="deadlock.avif">
+      <div class="image-text">
+        <h5>Deadlock</h5>
+        <p>Bilgi için tıkla</p>
+      </div>
+    </div>
+    </div> </a>
+  </div>
+</div>
+<div class="section-divider"></div>
+<div class="row">
+  <div class="col-md-12 py-4">
+    <h1 style="color: white; text-align: center;" id="nasiloynanir">Nasıl Oynanır?</h1>
+    <p class="mt-3" style="color:white; text-align: center;">Valorant, yakın gelecekte geçen takım tabanlı bir taktik nişancı ve birinci şahıs nişancı oyunudur. Oyuncular, dünyadaki çeşitli ülke ve kültürlere göre tasarlanmış bir dizi ajan karakter olarak oynarlar. Ana oyun modunda, oyuncular, her bir takımın beş oyuncuya sahip olduğu saldıran veya savunan takıma atanır. Temsilcilerin, her biri ücret gerektiren benzersiz yeteneklerinin yanı sıra öldürme, ölüm veya ani hareketler yoluyla hücum gerektiren benzersiz bir nihai yeteneğe sahiptirler. Her oyuncu her tura "klasik" bir tabanca ve bir "özel yetenek" ile başlar. Diğer silahlar ve yetenek ücretleri, bir önceki turun sonucuna, oyuncunun sorumlu olduğu herhangi bir öldürmeye ve ani artışla yapılan herhangi bir eyleme dayalı olarak para veren bir oyun içi ekonomik sistem kullanılarak satın alınabilir. Oyunda hafif makineli tüfekler, av tüfeği, makineli tüfek, saldırı tüfeği ve keskin nişancı tüfeği gibi çeşitli silahlar bulunur. "Spectre", "Odin" ve "Vandal" gibi otomatik ve yarı otomatik silahlar, doğru atış yapabilmek için oyuncu tarafından kontrol edilmesi gereken geri tepme modellerine sahiptir.</p> <br>
+  </div>
+</div>
+<div class="section-divider"></div>
+<div class="row">
+  <div class="col-md-12 py-4">
+    <h1 style="color: white; text-align: center;" id="genelbilgi">Genel Bilgi</h1>
+    <h3 style="color: white; text-align: left;">Bazı Oyun Modları</h3> <br>
+    <h5 style="color: white; text-align: left;">Derecesiz</h5>
+    <p class="mt-3" style="color: white; text-align: left;">Derecesiz oyun modunda, 13 turu kazanan ilk takım maçı kazanır. Saldıran ekibinin, Spike adlı bomba tipi cihazı işaretli bölgelerden birine götürmesi ve etkinleştirmesi gerekir. Saldıran ekip, Spike'ı etkinleştirildiği andan itibaren 45 saniye boyunca başarıyla korursa, patlar ve bir puan alırlar. Savunma takımı Spike'ı devre dışı bırakabilirse veya 100 saniyelik tur süresi, saldıran takım Spike'ı etkinleştirmeden sona ererse, savunma takımı bir puan alır. Bir takımın tüm üyeleri, Spike etkinleştirilmeden önce ölürse veya savunma yapan takımın tüm üyeleri, Spike etkinleştirildikten sonra ölürse, rakip takım bir puan kazanır.</p> <br>
+
+    <h5 style="color: white; text-align: left;">Spike'a Hücum</h5>
+    <p class="mt-3" style="color: white; text-align: left;">Spike'a Hücum modunda, 4 tur kazanan ilk takım maçı kazanır. Oyuncular raunta, standart oyunlara göre iki kat daha hızlı şarj olan ultisi hariç tüm yetenekler tamamen şarj edilmiş olarak başlar. Saldıran takımdaki tüm oyuncular bir Spike taşır, ancak her turda yalnızca bir Spike etkinleştirilebilir. Silahlar rastgele belirlenir ve her oyuncu aynı silahla başlar. Standart oyunda bulunan nihai ulti küreleri mevcut değildir, ancak onların yerinde farklı özellikler içeren küreler vardır.</p> <br>
+
+    <h5 style="color: white; text-align: left;">Rekabete Dayalı</h5>
+    <p class="mt-3" style="color: white; text-align: left;">Rekabete Dayalı maçlar, ilk 5 oyunu oynandıktan sonra her oyuncuya bir rütbe atayan kazanmaya dayalı bir sıralama sisteminin eklenmesiyle standart maçlarla aynıdır. Bu modda oynanan maçların sonunda gösterilen performansa göre elde edilen birçok kademe vardır. Temmuz 2020'de Riot, rekabete dayalı maçlar için "ikiyle galibiyet" koşulu getirdi; burada 12-12'de tek bir ani ölüm turu oynamak yerine, takımın kazanması için karşı takıma 2 sayı üstünlüğü olmalı. Her uzatma, oyunculara silah ve yetenek satın almaları için aynı miktarda paranın yanı sıra nihai yetenek ücretlerinin yaklaşık yarısını verir. Her iki turluk gruptan sonra oyuncular, ilk setten sonra 6 oyuncunun, ikinci setin ardından 3 oyuncunun ve daha sonra sadece 1 oyuncunun bir beraberliği kabul etmesini gerektiren bir berabere ile oyunu bitirmek için oy kullanabilir.</p> <br>
+
+    <h5 style="color: white; text-align: left;">Premier</h5>
+    <p class="mt-3" style="color: white; text-align: left;">Premier, 5'e 5 oynanan bir oyun modudur ve profesyonel oyuncu olmayı hedefleyen oyuncular için tasarlanmış bir rekabetçi oyun moduna olanak tanır. Premier, 2 Kasım 2022'de Brezilya'da alfa test aşamasına açıldı. 17 Nisan 2023'te global beta duyuruldu ve 25 Nisan 2023'te tüm sunuculara açıldı. 30 Ağustos 2023'te ise resmi çıkışını yaptı. Oyuncular, diğer takımlara karşı rekabet etmek için beş kişilik bir takım oluşturmak zorundadır. Her sezon birkaç hafta sürecektir ve en iyi takımlar Bölüm Şampiyonası'nda yarışmaya davet edilecektir. Bu oyun modu, diğer tüm oyun modlarından farklı olarak harita seçimi için bir seç ve yasakla sistemi içerecektir. Diğer oyun modlarında olduğu gibi sistem tarafından seçilen haritada oynamak zorunda kalmayacaklar.</p> <br>
+
+    <h5 style="color: white; text-align: left;">Ölüm Kalım Maçı</h5>
+    <p class="mt-3" style="color: white; text-align: left;">Ölüm Maçı modu 5 Ağustos 2020'de tanıtıldı. 12 oyuncu arasından 10 dakika içinde 40 öldürmeye ulaşan oyuncu oyunu kazanır. Eğer 40 öldürmeye ulaşılmadan süre biterse 40 öldürmeye en yakın oyuncu oyunu kazanmış sayılır.</p> <br>
+
+    <h5 style="color: white; text-align: left;">Takımlı Ölüm Kalım Maçı</h5>
+    <p class="mt-3" style="color: white; text-align: left;">Takım Ölüm Maçı" oyun modu 15 Haziran 2023 tarihinde duyuruldu ve 7.0 yamasıyla 27 Haziran'da aktif hale getirildi. Bu oyun modu, standart derecesiz modun ve ölüm maçı modunun öğelerini birleştirir. Oyuncular beşer kişilik iki takıma ayrılır. Her maç 9 dakika 30 saniye sürer ve ilk 100 öldürmeye ulaşan takım kazanır. Eğer 9.5 dakika sonunda hiçbir takım 100 öldürmeye ulaşmamışsa, en fazla öldürmeye sahip olan takım kazanır. Her maç dört aşamaya bölünmüş olup, oyuncular aşamalardan ilerledikçe silah seçimi giderek daha güçlü hale gelir. Oyuncular öldürüldükten sonra yeniden doğarlar ve ihtiyaç duyarlarsa silah yüklemelerini seçip ayarlayabilecekleri bir doğma odasına gönderilirler. Normal ölüm maçı modunun aksine, oyuncular maç başlamadan önce ajanlarını seçmek zorundadır, çünkü bu oyun modunda ajan yeteneklerine izin verilir. Oyuncular, ajanlarının özel yeteneklerini, harita üzerinde rastgele ortaya çıkan Ulti Orblarını alarak veya öldürmelerle şarj edebilirler. Ulti %100'e ulaştığında, ultilerini kullanabilirler. Bu mod, diğer tüm oyun modlarının aksine standart haritalarda değil; Piazza, District ve Kasbah olmak üzere takımlı ölüm maçı için özel olarak tasarlanmış haritalar üzerinde oynanır.</p> <br>
+
+    <h5 style="color: white; text-align: left;">Tırmanış</h5>
+    <p class="mt-3" style="color: white; text-align: left;">5'e 5 oynanan bir oyun modudur. Her iki takım bir bara sahiptir, bu barda belirli yerlerde belirli silahlar ve yetenekler bulunur. Eğer birisi öldürme alırsa bu bar ilerler. Takım bu bara göre silah atlar. Eğer elinizdeki silahla öldürme aldıysanız silahınız takımınızın silahı olur. Finalde ise size verilen şey "Dev bir bıçak", "Shorty", "Şok oku" ve dahası olabilir. Finalde takım belirli sayıda düşmanı öldürürse kazanır. Ölen kişi rastgele bir konumda yeniden doğar.</p> <br>
+
+
+    <h3 style="color: white; text-align: left;">Ajanlar</h3>
+    <p class="mt-3" style="color: white; text-align: left;">Valorant, farklı özel yeteneklere ve yaşam öykülerine sahip 28 adet ajan içerir. Bu ajanlar; düellocu, gözcü, öncü ve kontrol uzmanı olarak dört role ayrılır. Ajanların rolleri şu şekildedir ;</p> <br>
+
+    <h5 style="color: white; text-align: left;">Düellocu</h5>    
+    <p class="mt-3" style="color: white; text-align: left;">Bu rolün amacı agresif oyun tarzları ile birlikte bomba alanına giriş yapmak, rakip ile çatışmalara girerek onları katletmektir.</p>
+    <ul style="color: white;">
+      <li>Jett</li>
+      <li>Raze</li>
+      <li>Phoenix</li>
+      <li>Reyna</li>
+      <li>Yoru</li>
+      <li>Neon</li>
+      <li>Iso</li>
+      <li>Waylay</li>
+    </ul> <br>
+
+    <h5 style="color: white; text-align: left;">Gözcü</h5>    
+    <p class="mt-3" style="color: white; text-align: left;">Bu rolün amacı genellikle taret, tuzak gibi yetenekleri ile harita hakimiyetini sağlamak, rakibin bomba alanına girmesini yavaşlatmak ya da engellemektir.</p>
+    <ul style="color: white;">
+      <li>Sage</li>
+      <li>Cypher</li>
+      <li>Killjoy</li>
+      <li>Chamber</li>
+      <li>Deadlock</li>
+      <li>Vyse</li>
+      <li>Veto</li>
+    </ul> <br>
+
+    <h5 style="color: white; text-align: left;">Öncü</h5>    
+    <p class="mt-3" style="color: white; text-align: left;">Bu rolün amacı rakiplerin olduğu yerleri yetenekler ile tespit etmek ya da kör, sarsma veya sersemletme yetenekleri ile rakiplerin silah hakimiyetini bozup çatışmaları kaybetmelerini sağlamaktır.</p>
+    <ul style="color: white;">
+      <li>Breach</li>
+      <li>Skye</li>
+      <li>Kay/o</li>
+      <li>Fade</li>
+      <li>Sova</li>
+      <li>Gekko</li>
+      <li>Tejo</li>
+    </ul> <br>
+
+    <h5 style="color: white; text-align: left;">Kontrol Uzmanı</h5>    
+    <p class="mt-3" style="color: white; text-align: left;">Bu rol, "Smoke" adı verilen sis yetenekleri sayesinde haritanın çeşitli bölgelerinde görüşü kısıtlayabilmektedir. Amaçları bomba alanına giriş yapmak veya bomba alanını korumayı kolaylaştırmaktır.</p>
+    <ul style="color: white;">
+      <li>Omen</li>
+      <li>Brimstone</li>
+      <li>Viper</li>
+      <li>Astra</li>
+      <li>Harbor</li>
+      <li>Clove</li>
+    </ul>
+  </div>
+</div>
+<footer class="footer">
+    <div class="container text-center py-3">
+      <p class="mb-1" style="color: white;">© 2026 FutiVal</p>
+      <p class="mb-0" style="color: white;">
+        Valorant fan sitesidir. Riot Games ile resmi bir bağlantısı yoktur.
+      </p>
+      <div class="footer-icons">
+        <a href="https://www.instagram.com/futisx/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/@Futisxx?app=desktop" target="_blank"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+</div>
+<!-- VERSİYON -->
+<a href="FutiVal-Guncellemeler.html"><button style="position:fixed; bottom:20px; right:20px; background:#a30000; color:white; border:3px solid #721100; border-radius:6px;width:60px; height:40px;">v1</button></a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
